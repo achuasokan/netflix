@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react"
-import { Link } from "react-router-dom"
-
+import { Link, useNavigate } from "react-router-dom"
+import { userAuth } from "../context/AuthContext"
+import {toast} from 'react-toastify'
 
 const Signup = ()=> {
   const [rememberLogin, setRememberMe] = useState(false)
@@ -8,14 +9,19 @@ const Signup = ()=> {
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>)=> {
+  const {signUp} = userAuth()
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>)=> {
     e.preventDefault()
-    alert(`name:${name} & email:${email} & password:${password}`)
+      await signUp(name,email, password)
+      toast.success('SignUp successful')
+      navigate('/')
   }
   return(
     <>
     <div className="w-full h-screen">
-      <img  className="hidden sm:block absolute w-full h-full object-cover" src="../public/dream111 (5).jpg" alt="///" />
+      <img  className="hidden sm:block absolute w-full h-full object-cover" src="/dream111 (5).jpg" alt="///" />
 
       <div className="bg-black/70 fixed top-0 left-0 w-full h-screen" />
 
