@@ -21,12 +21,12 @@ const Login = () => {
   
   return(
     <>
-    <div className="w-full h-screen">
+    <div className="w-full h-screen relative">
       <img  className="hidden sm:block absolute w-full h-full object-cover" src="/dream111 (5).jpg" alt="///" />
 
       <div className="bg-black/70 fixed top-0 left-0 w-full h-screen" />
 
-      <div className="fixed w-full px-4 py-24 z-20">
+      <div className="relative w-full px-4 py-24 z-20">
         <div className="max-w-[450px] h-[600px] mx-auto bg-black/80 rounded-lg">
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-3xl text-bold ">Login</h1>
