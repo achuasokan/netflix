@@ -26,3 +26,8 @@ body {
   font-family: "Nsans Bold";
   src: url(./assets/NetflixSans-Bold.woff2);
 }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+}

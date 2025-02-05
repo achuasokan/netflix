@@ -1,16 +1,17 @@
-import { useState,FormEvent } from "react"
+import { useState, FormEvent } from "react"
 import { Link } from "react-router-dom"
 
-const Login = () => {
+
+const Signup = ()=> {
   const [rememberLogin, setRememberMe] = useState(false)
+  const [name,setName] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>)=> {
     e.preventDefault()
-    alert(` & email:${email} & password:${password}`)
+    alert(`name:${name} & email:${email} & password:${password}`)
   }
-  
   return(
     <>
     <div className="w-full h-screen">
@@ -21,9 +22,10 @@ const Login = () => {
       <div className="fixed w-full px-4 py-24 z-20">
         <div className="max-w-[450px] h-[600px] mx-auto bg-black/80 rounded-lg">
           <div className="max-w-[320px] mx-auto py-16">
-            <h1 className="text-3xl text-bold ">Login</h1>
+            <h1 className="text-3xl text-bold ">Sign Up</h1>
 
             <form className="w-full flex flex-col py-4" onSubmit={handleSubmit}>
+              <input className="p-3 my-2 bg-gray-700 rounded" type='name' placeholder='Enter Your Name' value={name} onChange={(e)=> setName(e.target.value)}/> 
               <input className="p-3 my-2 bg-gray-700 rounded" type='email' placeholder='Enter Your email' autoComplete="email" value={email} onChange={(e)=> setEmail(e.target.value)}/> 
               <input className="p-3 my-2 bg-gray-700 rounded" type='password' placeholder='Enter Your Password' autoComplete="current-password" value={password} onChange={(e)=> setPassword(e.target.value)}/> 
 
@@ -31,15 +33,14 @@ const Login = () => {
 
               <div className="flex justify-between items-center text-gray-600">
                 <p>
-                  
                   <input type='checkbox' className="mr-2" checked={rememberLogin} onChange={(e)=> setRememberMe(!rememberLogin)}/>
                   Remember Me
                 </p>
                 <p>Need Help?</p>
               </div>
               <p className="my-4">
-                <span className="text-gray-600 mr-2">New to Netflix?</span>
-                <Link to='/signup'>Sign Up</Link>
+                <span className="text-gray-600 mr-2">Already subscribed to Netflix?</span>
+                <Link to='/login'>Sign In</Link>
               </p>
             </form>
           </div>
@@ -50,4 +51,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup

@@ -31,16 +31,16 @@ const Hero = () => {
 
   return (
     <>
-    <div className='w-full h-[550px] lg:h-[850px]'>
+    <div className='w-full h-[550px] lg:h-[700px]'>
       <div className='w-full h-full'>
         <div className='absolute w-full h-[550px] lg:h-[850px] bg-gradient-to-r from-black' />   
           <img  className="w-full h-full object-cover object-top" src={createImageUrl(backdrop_path || '','original')} alt={title || 'MOvie Title'} />
         {/* </div> */}
 
-        <div className='absolute w-full top-[20%] lg:top-[35%] p-4 md:p8'>
+        <div className='absolute w-full top-[20%] lg:top-[40%] p-4 md:p8'>
           <h1 className='text-3xl md:text-6xl font-bold'>{title}</h1>
           <div className='mt-8 mb-4'>
-            <button type='button'className='border bg-gray-300 py-2 px-2 text-black'>Play</button>
+            <button type='button'className='border bg-gray-300 py-2 px-2 text-black ml-2'>Play</button>
             <button type='button' className='border border-gray-300 py-2 px-5 ml-4'>Watch Later</button>
           </div>
           <p className='text-gray-400 text-sm'>{release_date}</p>

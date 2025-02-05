@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import MovieItem from "./MovieItem"
 
 
@@ -18,11 +18,21 @@ interface MovieRowProps {
 const MovieRow = ({ title, url }: MovieRowProps) => {
 
   const [movies,setMovies] = useState<Movie[]>([])
+  const cardsRef =useRef<HTMLDivElement | null>(null)
 
+  const handleWheel =(e: WheelEvent)=> {
+    e.preventDefault()
+    if (cardsRef.current) {
+      cardsRef.current.scrollLeft += e.deltaY;
+    }
+  }
   useEffect(() => {
+
+    if (cardsRef.current) {
+      cardsRef.current.addEventListener('wheel', handleWheel)
+    }
+
     axios.get(url).then((response)=>  {
-      console.log(response.data.results);
-      
       setMovies(response.data.results)
      })
   }, [url])
@@ -31,7 +41,7 @@ const MovieRow = ({ title, url }: MovieRowProps) => {
     <>
    <h2 className="font-medium md:text-xl p-4 capitalize">{title}</h2>
    <div className="relative flex items-center">
-    <div  id={`slider`} className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
+    <div  className="w-full h-full overflow-x-scroll whitespace-nowrap scrollbar-hide" ref={cardsRef}>
       {
         movies.map((movie) => (
           <MovieItem key={movie.id} movie={movie} />
