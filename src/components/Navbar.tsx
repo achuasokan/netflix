@@ -5,6 +5,7 @@ const Navbar = () => {
   const {user,logout} = userAuth()
   const navigate = useNavigate()
 
+  //* Function to manage user Logout
   const handleLogout = async () => {
     try {
       await logout()
@@ -13,13 +14,17 @@ const Navbar = () => {
       console.log(error);
     }
   }
+
+
   return (
 
     <div className='absolute w-full p-4 flex items-center justify-between z-50'>
+
       <Link to='/'>
-      <h1 className='uppercase text-red-600 cursor-pointer font-bold text-5xl'>netflix</h1>
+      <img src='/logo.png' alt='//' className='cursor-pointer w-40' />
       </Link>
 
+      {/* //* Conditional showing the elements based on the user auth statues  */}
       {
         user ? (
           <div className=''>

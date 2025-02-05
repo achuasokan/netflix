@@ -6,15 +6,16 @@ import facebook_icon from '../assets/facebook_icon.png'
 
 const Footer = () => {
   return(
-    <div className=" p-[30px px-[4%] max-w-5xl m-0 mx-auto">
-      <div className=" flex gap-5 m-[40px] ">
-        <img  className="w-8 cursor-pointer" src={facebook_icon} alt="" />
+    <div className="p-4 md:p-6 lg:p-8 max-w-5xl m-0 mx-auto">
+      {/* Media Icons */}
+      <div className="flex flex-wrap gap-5 m-4">
+        <img className="w-8 cursor-pointer" src={facebook_icon} alt="" />
         <img className="w-8 cursor-pointer" src={instagram_icon} alt="" />
         <img className="w-8 cursor-pointer" src={twitter_icon} alt="" />
         <img className="w-8 cursor-pointer" src={youtube_icon} alt="" />
       </div>
 
-      <ul className='grid grid-cols-4 gap-4 mb-[30px] list-none'>
+      <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 list-none'>
         <li className='cursor-pointer hover:underline'>FAQ</li>
         <li className='cursor-pointer hover:underline'>Audio Description</li>
         <li className='cursor-pointer hover:underline'>Help Centre</li>
@@ -33,7 +34,7 @@ const Footer = () => {
         <li className='cursor-pointer hover:underline'>Only on Netflix</li>
       </ul>
 
-      <p className='text-gray-500 text-sm'>Netflix India</p>
+      <p className='text-gray-500 text-sm text-center'>Netflix India</p>
     </div>
   )
 }

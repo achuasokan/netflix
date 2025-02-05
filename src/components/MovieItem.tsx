@@ -16,6 +16,7 @@ const MovieItem = ({movie}: {movie: Movie}) => {
   const {user} = userAuth();
   const {title, backdrop_path, poster_path} = movie
 
+  //* Function to mark a movie as a favorite
   const markFavShow = async () => {
     const userEmail = user?.email;
 

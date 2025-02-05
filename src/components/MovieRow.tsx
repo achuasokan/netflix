@@ -1,7 +1,9 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
+
+//^ Import MovieItem component to display individual movie items
 import MovieItem from "./MovieItem"
-import {MdChevronLeft, MdChevronRight} from 'react-icons/md'
+import {MdChevronLeft, MdChevronRight} from 'react-icons/md'   //^ icons for navigation
 
 interface Movie {
   id: number;
@@ -22,6 +24,8 @@ const MovieRow = ({ title, url }: MovieRowProps) => {
 
 
   const rowId = Math.floor(Math.random() * 1000)
+
+   //* Function to slide the movie cards left or right
   const slide = (offset: number) => {
     const slider = document.getElementById('slider' + rowId)
     if(slider) {
@@ -29,6 +33,7 @@ const MovieRow = ({ title, url }: MovieRowProps) => {
     }
   }
 
+  //* Function to handle mouse wheel scrolling
   const handleWheel =(e: WheelEvent)=> {
     e.preventDefault()
     if (cardsRef.current) {
@@ -36,6 +41,7 @@ const MovieRow = ({ title, url }: MovieRowProps) => {
     }
   }
 
+  //* useEffect to fetch movies and set up event listener
   useEffect(() => {
 
     if (cardsRef.current) {
