@@ -4,6 +4,7 @@ import {FaHeart, FaRegHeart} from 'react-icons/fa'
 import { userAuth } from "../context/AuthContext";
 import { arrayUnion, updateDoc, doc } from "firebase/firestore";
 import { db  } from "../services/firebase";
+import { toast } from "react-toastify";
 interface Movie {
   title: string;
   backdrop_path: string; 
@@ -27,7 +28,7 @@ const MovieItem = ({movie}: {movie: Movie}) => {
         favShows: arrayUnion({...movie})
       })
     } else {
-      alert('Login to save a movie')
+      toast.error('Please login to like a movie')
     }
   }
 
